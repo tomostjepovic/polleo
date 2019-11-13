@@ -16,4 +16,11 @@ var PolleoSettings = {
 Za uređivanje koda dovoljan je bilo koji tekstualni editor, npr:
 * Visual Studio Code
 * Notepad++
-* SUblime Text 
+* Sublime Text 
+
+## Backend: WeatherApi
+Backend je .NET WebApi aplikacija pisana u C#. Za host-anje se preporuča IIS.
+Podatke o vremenskoj prognozi dohvaća sa [OpenWeather] (https://openweathermap.org/). Pošto je korišten dependeny injection, jednostavno se može zamijeniti servis za dohvat prognoze sa nekim drugim. Potrebno je napraviti novi servis, naslijediti interface `IForecastService`  te podesiti datoteku `WatherApi\App_Start\WebApiConfig.cs` (nije potrebno raditi nikakve druge izmjene u kodu):
+ ```csharp
+container.RegisterType<IForecastService, {NEW_FORECAST_SERVICE}>(new HierarchicalLifetimeManager());
+```
