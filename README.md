@@ -14,6 +14,6 @@ var PolleoSettings = {
 };
 ```
 Za uređivanje koda dovoljan je bilo koji tekstualni editor, npr:
-⋅⋅* Visual Studio Code
-⋅⋅* Notepad++
-⋅⋅* SUblime Text 
+* Visual Studio Code
+* Notepad++
+* SUblime Text 
