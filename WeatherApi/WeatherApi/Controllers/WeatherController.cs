@@ -1,12 +1,14 @@
 ﻿using System.Collections.Generic;
 using System.Web;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using WeatherApi.Helpers;
 using WeatherApi.Models;
 
 namespace WeatherApi.Controllers
 {
     [RoutePrefix("api")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class WeatherController : ApiController
     {
         private IForecastService _forecastService;
