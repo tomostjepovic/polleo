@@ -20,6 +20,11 @@
                 this.loadingInProgress = false;
                 return;
             }
+            if (!PolleoSettings.apiUrl) {
+                this.loadingInProgress = false;
+                alert("Nije postavljen URL do API servera.")
+                return;
+            }
             var jqxhr = $.get(PolleoSettings.apiUrl + "/api/weather-forecast?latitude=" + latitude + "&longitude=" + longitude, function(result) {
                 app.forecasts = result;
 
