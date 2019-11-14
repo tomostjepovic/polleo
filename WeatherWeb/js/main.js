@@ -3,7 +3,7 @@
     data: {
         appName: "Polleo weather",
         forecasts: [],
-        userInputCoordinates: "40.730610, -73.935242",
+        userInputCoordinates: "",
         loadingInProgress: false
     },
     methods: {
@@ -12,14 +12,15 @@
             this.forecasts = [];
             var coord = this.userInputCoordinates.split(',');
 
-            var latitude = coord[0];
-            var longitude = coord[1];
-
             if (coord.length != 2) {
                 alert("Upisane koordinate nisu u ispravnom formatu.");
                 this.loadingInProgress = false;
                 return;
-            }
+            }            
+
+            var latitude = coord[0];
+            var longitude = coord[1];
+
             if (!PolleoSettings.apiUrl) {
                 this.loadingInProgress = false;
                 alert("Nije postavljen URL do API servera.")
@@ -30,7 +31,7 @@
 
                 const max = app.forecasts.reduce(function(prev, current) {
                     return (prev.Temperature > current.Temperature) ? prev : current
-                }) //returns object
+                })
 
                 max.IsHottest = true;
                 $("#locations-container").removeClass('hidden');
@@ -48,26 +49,3 @@
         }
     }
   });
-
-$("#weather-formd" ).submit(function( event ) {
-    event.preventDefault();
-
-    var coordinates = $("#coordinates").val();
-
-    var coord = coordinates.split(',');
-
-    var latitude = coord[0];
-    var longitude = coord[1];
-
-    if (coord.length != 2) {
-        alert("Upisane koordinate nisu u ispravnom formatu.");
-        return;
-    }
-
-    var $submitButton = $("#show-forecast-btn");
-    $submitButton.button('loading');
-
-    
-  });
-
-  app.message = "Test";
