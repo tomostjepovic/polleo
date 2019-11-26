@@ -1,5 +1,5 @@
 SELECT 
-f.Naziv, BrojStudentav= test
+f.Naziv, BrojStudentav= test2
 FROM Omega.Fakultet f
 LEFT JOIN Omega.Student s ON a.ID = s.AdresaID
 GROUP BY f.ID
